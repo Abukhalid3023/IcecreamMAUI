@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IcecreamMaui.Pages.OnboardingPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="*,*"
+          Padding="0,0,0,50">
+
+        <VerticalStackLayout Grid.Row="0" Padding="10" Spacing="10"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+            <Image Source="cone.png"
+                   HeightRequest="200"
+                   WidthRequest="200"
+                   Aspect="AspectFit"/>
+            <Label Text="WELCOME"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   FontSize="15"/>
+            <Label Text="KHALID ICECREAMS"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   FontSize="20"/>
+            <Label Text="HOME OF DELICIOUS ICECREAMS"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   FontSize="15"/>
+        </VerticalStackLayout>
+        <VerticalStackLayout Grid.Row="1"
+                             Spacing="20"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+            <Button Text="SIGNIN" 
+                    FontAttributes="Bold"
+                    Clicked="Signin_Clicked"/>
+            <Button Text="SIGNUP"
+                    FontAttributes="Bold"
+                    Clicked="Signup_Clicked"/>
+
+        </VerticalStackLayout>
+    </Grid>
+          
+</ContentPage>

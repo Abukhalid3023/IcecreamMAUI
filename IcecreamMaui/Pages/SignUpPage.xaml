@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IcecreamMaui.Pages.SignUpPage"
+             xmlns:vm="clr-namespace:IcecreamMaui.ViewModels"
+             Title="SignUpPage"
+             Shell.FlyoutBehavior="Disabled"
+             x:DataType= "vm:AuthViewModel">
+
+    <Grid>
+        <VerticalStackLayout VerticalOptions="Center"
+                             Padding="20"
+                             Spacing="20">
+            <Image Source="cone.png"
+                   HeightRequest="150"
+                   WidthRequest="150"
+                   Aspect="AspectFit"/>
+
+            <Entry Text="{Binding Name}"
+                   FontSize="20"
+                   Placeholder="Name"/>
+
+            <Entry Text="{Binding Email}"
+                   FontSize="20"
+                   Keyboard="Email"
+                   Placeholder="Email"/>
+
+            <Entry Text="{Binding Password}"
+                   FontSize="20"
+                   IsPassword="True"
+                   Placeholder="Password"/>
+
+            <Editor Text="{Binding Address}"
+                    FontSize="20"
+                    MaxLength="150"
+                    AutoSize="TextChanges"
+                    Placeholder="Address"/>
+
+            <Label Text="Existing user? Signin"
+                   FontSize="15"
+                   FontAttributes="Bold"
+                   TextColor="Black">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="SigninLabel_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+
+            <Button Text="SignUp"
+                    IsEnabled="{Binding CanSignup}"
+                    Command="{Binding SignupCommand}"/>
+        </VerticalStackLayout>
+        <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+    </Grid>  
+</ContentPage>

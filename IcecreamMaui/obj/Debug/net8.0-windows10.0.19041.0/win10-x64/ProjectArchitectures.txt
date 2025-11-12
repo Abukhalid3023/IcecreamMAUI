@@ -1,0 +1,1 @@
+C:\Test Projects\IcecreamMaui\IcecreamMaui.csproj;x64

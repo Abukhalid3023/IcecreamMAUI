@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:IcecreamMaui.ViewModels"
+             xmlns:dto="clr-namespace:IcecreamMAUI.Shared.DTOS;assembly=IcecreamMAUI.Shared"
+             x:Class="IcecreamMaui.Pages.HomePage"
+             Title="HomePage"
+             Shell.NavBarIsVisible="False"
+             x:DataType="vm:HomeViewModel">
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="10,25,10,10">
+                <VerticalStackLayout Spacing="10" Margin="0,0,0,30">
+                    <Label 
+                        FontAttributes="Bold"
+                        FontSize="30"
+                        Text="{Binding UserName, StringFormat= 'Hello {0}'}"/>
+                    <Label 
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        Text="What would you like to have today?"/>
+                </VerticalStackLayout>
+                <CollectionView ItemsSource="{Binding Icecreams}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                             Span="2"
+                             VerticalItemSpacing="25"
+                             HorizontalItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="dto:IcecreamDTO">
+                            <Border Background="#FBDBDE"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 10">
+                                <Grid RowDefinitions="*,Auto,Auto">
+                                    <Image Grid.Row="0"
+                                             Source="{Binding Image}"
+                                             HeightRequest="170"
+                                             Aspect="AspectFill"/>
+                                    <Label Grid.Row="1"
+                                           Text="{Binding Name}"
+                                           FontSize="15"
+                                           HorizontalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           Padding="0,10"
+                                           TextColor="Black"
+                                           FontAttributes="Bold"/>
+                                    <Label Grid.Row="2"
+                                           Text="{Binding Price, StringFormat= '{0:C}'}"
+                                           FontSize="15"
+                                           HorizontalOptions="End"
+                                           FontAttributes="Bold"
+                                           Padding="5"/>
+                                </Grid>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}},  Path=GoToDetailsPageCommand}"
+                                                          CommandParameter="{Binding .}"/>
+                                </Border.GestureRecognizers>
+                            </Border>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+        <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+    </Grid>
+</ContentPage>

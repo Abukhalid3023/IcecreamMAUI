@@ -1,0 +1,68 @@
+[
+  {
+    "ContainingType": "IcecreamMAUI.API.Endpoints.Endpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndPoints\u003Eb__0_2",
+    "RelativePath": "api/icecreams",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "IcecreamMAUI.Shared.DTOS.IcecreamDTO[]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IcecreamMAUI.API.Endpoints.Endpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndPoints\u003Eb__0_1",
+    "RelativePath": "api/signin",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "IcecreamMAUI.Shared.DTOS.SigninRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IcecreamMAUI.Shared.DTOS.ResultWithDataDTO\u00601[[IcecreamMAUI.Shared.DTOS.AuthResponseDTO, IcecreamMAUI.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "IcecreamMAUI.API.Endpoints.Endpoints\u002B\u003C\u003Ec",
+    "Method": "\u003CMapEndPoints\u003Eb__0_0",
+    "RelativePath": "api/signup",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "IcecreamMAUI.Shared.DTOS.SignupRegisterDT0",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IcecreamMAUI.Shared.DTOS.ResultWithDataDTO\u00601[[IcecreamMAUI.Shared.DTOS.AuthResponseDTO, IcecreamMAUI.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

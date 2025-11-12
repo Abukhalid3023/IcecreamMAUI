@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:IcecreamMaui.ViewModels"
+             xmlns:dto="clr-namespace:IcecreamMAUI.Shared.DTOS;assembly=IcecreamMAUI.Shared"
+             xmlns:models="clr-namespace:IcecreamMaui.Models"
+             x:Class="IcecreamMaui.Pages.DetailsPage"
+             Shell.PresentationMode="ModalAnimated"
+             x:DataType="vm:DetailsViewModel">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ImageButton" x:Key="quantityBtn">
+                <Setter Property="BackgroundColor" Value="Wheat"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid RowDefinitions="Auto,*,Auto"
+      Padding="10,30,10,10">
+            <VerticalStackLayout Grid.Row="0"
+                         HorizontalOptions="Center"
+                         Spacing="10">
+                <Image Source="{Binding Icecream.Image}"
+                            HeightRequest="200"
+                            WidthRequest="280"
+                            HorizontalOptions="Center"
+                            Aspect="AspectFit"/>
+                <Label Text="{Binding Icecream.Name}"
+               HorizontalOptions="Center"
+               FontAttributes="Bold"
+               FontSize="25"
+               HorizontalTextAlignment="Center"
+               TextColor="Black"/>
+                <Label Text="{Binding Icecream.Price, StringFormat= '{0:C}'}"
+               TextColor="Black"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <CollectionView Grid.Row="1"
+                    ItemsSource ="{Binding Options}"
+                    VerticalOptions="Center"
+                    HeightRequest="200">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Span="2"
+                             Orientation="Vertical"
+                             VerticalItemSpacing="10"
+                             HorizontalItemSpacing="10">
+                    </GridItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:IcecreamOption">
+                        <Border StrokeShape="RoundRectangle 5"
+                        Stroke="Gray"
+                        Padding="15">
+                            <Border.Triggers>
+                                <DataTrigger TargetType="Border"
+                                             Binding="{Binding IsSelected}"
+                                             Value="True">
+                                    <Setter Property="Stroke" Value="Red"/>
+                                    <Setter Property="StrokeThickness" Value="4"/>
+                                </DataTrigger>
+                            </Border.Triggers>
+                            <VerticalStackLayout Spacing="15">
+                                <VerticalStackLayout Spacing="10">
+                                    <Label Text="{Binding Flavor}"
+                                   TextColor="Black"
+                                   FontSize="15"
+                                   FontAttributes="Bold"/>
+                                    <Label Text="Flavor" FontSize="15"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Spacing="5">
+                                    <Label Text="{Binding Topping}"
+                                   TextColor="Black"
+                                   FontSize="15"
+                                   FontAttributes="Bold"/>
+                                    <Label Text="Topping" FontSize="15"/>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:DetailsViewModel}}, Path=SelectOptionCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <VerticalStackLayout Grid.Row="2"
+                         VerticalOptions="End"
+                         Spacing="10">
+                <Grid ColumnDefinitions="*,200,*"
+              Padding="0,0,0,15">
+                    <ImageButton Grid.Column="0"
+                         Source="minus.png"
+                         HeightRequest="45"
+                         WidthRequest="40"
+                         CornerRadius="20"
+                         HorizontalOptions="End"
+                         Style="{x:StaticResource quantityBtn}"
+                         Command="{Binding DecreaseQuantityCommand}"
+                         IsEnabled="True">
+                        <ImageButton.Triggers>
+                            <DataTrigger Binding="{Binding Quantity}"
+                                 TargetType="ImageButton"
+                                 Value="0">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </ImageButton.Triggers>
+                    </ImageButton>
+
+
+                    <Label Grid.Column="1"
+                   Text="{Binding Quantity}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="25"/>
+
+                    <ImageButton Grid.Column="2"
+                         Source="add.png"
+                         HeightRequest="40"
+                         WidthRequest="40"
+                         CornerRadius="20"
+                         HorizontalOptions="Start"
+                         Style="{x:StaticResource quantityBtn}"
+                         Command="{Binding IncreaseQuantityCommand}"/>
+                </Grid>
+
+                <Button 
+                        FontAttributes="Bold"
+                        Command="{Binding AddToCartCommand}" Text="Add to Cart"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <ImageButton Source="back.png"
+                     HorizontalOptions="Start"
+                     VerticalOptions="Start"
+                     BackgroundColor="Wheat"
+                     HeightRequest="40"
+                     WidthRequest="40"
+                     CornerRadius="20"
+                     Padding="10"
+                     Margin="15"
+                     Command="{Binding GoBackCommand}">
+            <ImageButton.Shadow>
+                <Shadow/>
+            </ImageButton.Shadow>
+        </ImageButton>
+    </Grid>
+</ContentPage>

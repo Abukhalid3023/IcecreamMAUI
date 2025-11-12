@@ -1,0 +1,11 @@
+C:\Test Projects\IcecreamMAUI.Shared\bin\Debug\net8.0\IcecreamMAUI.Shared.deps.json
+C:\Test Projects\IcecreamMAUI.Shared\bin\Debug\net8.0\IcecreamMAUI.Shared.dll
+C:\Test Projects\IcecreamMAUI.Shared\bin\Debug\net8.0\IcecreamMAUI.Shared.pdb
+C:\Test Projects\IcecreamMAUI.Shared\obj\Debug\net8.0\IcecreamMAUI.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Test Projects\IcecreamMAUI.Shared\obj\Debug\net8.0\IcecreamMAUI.Shared.AssemblyInfoInputs.cache
+C:\Test Projects\IcecreamMAUI.Shared\obj\Debug\net8.0\IcecreamMAUI.Shared.AssemblyInfo.cs
+C:\Test Projects\IcecreamMAUI.Shared\obj\Debug\net8.0\IcecreamMAUI.Shared.csproj.CoreCompileInputs.cache
+C:\Test Projects\IcecreamMAUI.Shared\obj\Debug\net8.0\IcecreamMAUI.Shared.dll
+C:\Test Projects\IcecreamMAUI.Shared\obj\Debug\net8.0\refint\IcecreamMAUI.Shared.dll
+C:\Test Projects\IcecreamMAUI.Shared\obj\Debug\net8.0\IcecreamMAUI.Shared.pdb
+C:\Test Projects\IcecreamMAUI.Shared\obj\Debug\net8.0\ref\IcecreamMAUI.Shared.dll
